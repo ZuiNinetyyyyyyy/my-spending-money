@@ -245,6 +245,102 @@
   .cat-chip:hover { opacity: 0.8; }
 
   input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+  /* ===== MOBILE RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    /* Topbar */
+    .topbar { padding: 0 12px; height: 56px; gap: 8px; }
+    .topbar-brand { font-size: 15px; white-space: nowrap; }
+    .topbar-right { gap: 6px; flex-shrink: 0; }
+    .user-badge { padding: 5px 10px 5px 6px; font-size: 12px; }
+    .user-dot { width: 24px; height: 24px; font-size: 10px; }
+    .btn-pdf { padding: 7px 10px; font-size: 12px; }
+    .btn-pdf span { display: none; }
+
+    /* Tabs — scrollable horizontal */
+    .tabs { padding: 0 8px; overflow-x: auto; overflow-y: hidden; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 0; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab { padding: 12px 12px; font-size: 12px; white-space: nowrap; flex-shrink: 0; gap: 4px; }
+    .tab i { font-size: 14px; }
+
+    /* Main content */
+    .main { padding: 12px; }
+
+    /* Summary cards */
+    .summary-grid { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+    .summary-card { padding: 14px 12px; }
+    .summary-value { font-size: 17px; }
+    .summary-label { font-size: 10px; }
+    .summary-sub { font-size: 11px; }
+    .summary-icon { width: 28px; height: 28px; font-size: 14px; right: 10px; top: 10px; }
+
+    /* Charts */
+    .charts-grid { grid-template-columns: 1fr; gap: 12px; margin-bottom: 16px; }
+    .chart-wrap[style*="height:260px"] { height: 200px !important; }
+    .chart-wrap[style*="height:180px"] { height: 160px !important; }
+    .chart-wrap[style*="height:300px"] { height: 220px !important; }
+
+    /* Cards */
+    .card { padding: 14px 12px; }
+    .card-title { font-size: 12px; }
+    .section-title { font-size: 16px; }
+
+    /* Riwayat table — card-style rows instead of table */
+    .table-container table,
+    .table-container thead,
+    .table-container tbody,
+    .table-container th,
+    .table-container td,
+    .table-container tr { display: block; }
+    .table-container thead { display: none; }
+    .table-container tr {
+      background: var(--bg3);
+      border-radius: var(--radius-sm);
+      margin-bottom: 8px;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .table-container tr:hover { background: var(--bg3); }
+    .table-container td {
+      padding: 2px 0;
+      border: none;
+      font-size: 13px;
+    }
+    .table-container td:last-child { border: none; }
+    /* Amount cell — right-aligned, larger */
+    .table-container td[style*="text-align:right"] {
+      position: absolute;
+      top: 10px; right: 12px;
+      font-size: 14px;
+    }
+
+    /* Filter bar */
+    .filter-bar { gap: 8px; }
+    .filter-bar select,
+    .filter-bar input { min-width: 0; flex: 1 1 calc(50% - 4px); font-size: 13px; padding: 8px 10px; }
+
+    /* Rekap grid */
+    .rekap-grid { grid-template-columns: 1fr; gap: 12px; }
+
+    /* Form */
+    .card[style*="max-width:600px"] { margin: 0; }
+    input, select, textarea { font-size: 16px; } /* prevent iOS zoom */
+
+    /* Toast */
+    .toast { bottom: 12px; right: 12px; left: 12px; font-size: 13px; }
+
+    /* Profile screen */
+    .profile-grid { flex-direction: column; align-items: center; gap: 16px; }
+    .profile-card { width: 200px; }
+    .profile-logo { font-size: 28px; }
+    .profile-sub { font-size: 14px; margin-bottom: 32px; }
+  }
+
+  @media (max-width: 380px) {
+    .summary-grid { grid-template-columns: 1fr; }
+    .topbar-brand { font-size: 13px; }
+  }
 </style>
 </head>
 <body>
@@ -281,7 +377,7 @@
         <i class="ti ti-chevron-down" style="font-size:14px"></i>
       </div>
       <button class="btn btn-pdf" onclick="exportPDF()">
-        <i class="ti ti-file-type-pdf"></i> Export PDF
+        <i class="ti ti-file-type-pdf"></i><span> Export PDF</span>
       </button>
     </div>
   </div>
