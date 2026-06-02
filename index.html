@@ -946,7 +946,7 @@ function renderPersentase() {
 function exportPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF('p', 'mm', 'a4');
-  const txns = getUserTxns();
+  const txns = getUserTxns().slice().sort((a, b) => a.date.localeCompare(b.date));
   const { totalIncome, totalExpense, balance } = getSummary();
   const pct = totalIncome > 0 ? ((totalExpense / totalIncome) * 100).toFixed(1) : 0;
   const today = new Date().toLocaleDateString('id-ID', { year:'numeric', month:'long', day:'numeric' });
